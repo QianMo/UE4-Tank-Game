@@ -11,11 +11,11 @@ void ATankAIController::BeginPlay( )
 	auto ControlledTank = GetControllerTank( );
 	if (ControlledTank == nullptr)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("PlayerController not prossesing a tank "));
+		UE_LOG(LogTemp, Warning, TEXT("ATankAIController not prossesing a tank "));
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("TankPlayerController processing : %s "), *ControlledTank->GetName( ));
+		UE_LOG(LogTemp, Warning, TEXT("ATankAIController processing : %s "), *ControlledTank->GetName( ));
 	}
 
 
