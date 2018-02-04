@@ -23,10 +23,4 @@ class BATTLETANK_API ATankAIController : public AAIController
 	
 	ATank* GetPlayerTank( ) const;
 
-	// Start the tank moving the barrel so that a shot would be it where the crosshari intersects the world 
-	void AimTowardPlayer( );
-
-	// Return an OUT parameter ,ture if hit landscape
-	bool GetSightRayHitLocation(FVector& HitLocation) const;
-
 };

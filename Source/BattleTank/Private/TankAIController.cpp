@@ -3,6 +3,7 @@
 #include "BattleTank.h"
 #include "TankAIController.h"
 
+#define OUT
 
 void ATankAIController::BeginPlay( )
 {
@@ -24,9 +25,7 @@ void ATankAIController::BeginPlay( )
 void ATankAIController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	UE_LOG(LogTemp, Warning, TEXT("ATankAIController : Tick!"));
-
-	AimTowardPlayer( );
+	//UE_LOG(LogTemp, Warning, TEXT("ATankAIController : Tick!"));
 }
 
 ATank* ATankAIController::GetControllerTank( ) const
@@ -47,32 +46,3 @@ ATank* ATankAIController::GetPlayerTank( ) const
 }
 
 
-// Start the tank moving the barrel so that a shot would be it where the crosshari intersects the world 
-void ATankAIController::AimTowardPlayer( )
-{
-	if (!GetControllerTank())
-	{
-		return;
-	}
-	//Out Parameter
-	FVector HitLocation;
-	if (GetSightRayHitLocation(HitLocation)) // Has "Side-effect" , is going to line trace
-	{
-
-		UE_LOG(LogTemp, Warning, TEXT("Hit Location: %s"), *HitLocation.ToString( ));
-	}
-
-
-	// If it hits the landscape
-
-	// Tell controlled tank to aim at this point
-
-}
-
-// Get world location if linetrace throught crosshair  ,true if hits landscape
-bool ATankAIController::GetSightRayHitLocation(FVector& HitLocation) const
-{
-	HitLocation = FVector(1.0);
-
-	return true;
-}
