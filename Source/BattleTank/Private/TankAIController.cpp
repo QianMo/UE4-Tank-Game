@@ -25,7 +25,13 @@ void ATankAIController::BeginPlay( )
 void ATankAIController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	//UE_LOG(LogTemp, Warning, TEXT("ATankAIController : Tick!"));
+	if (GetPlayerTank())
+	{
+		// Move towards the player
+
+		//Aim towards the player
+		GetControllerTank( )->AimAt(GetPlayerTank( )->GetActorLocation( ));
+	}
 }
 
 ATank* ATankAIController::GetControllerTank( ) const

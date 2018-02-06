@@ -16,8 +16,6 @@ void ATankPlayerController::BeginPlay( )
 	{
 		UE_LOG(LogTemp, Warning, TEXT("TankPlayerController processing : %s "),*ControlledTank->GetName());
 	}
-
-	
 }
 
 void ATankPlayerController::Tick(float DeltaTime)
@@ -47,6 +45,7 @@ void ATankPlayerController::AimTowardsPlayer( )
 	{
 
 		//UE_LOG(LogTemp, Warning, TEXT("Hit Location: %s"), *HitLocation.ToString( ));
+		GetControllerTank( )->AimAt(HitLocation);
 	}
 
 
@@ -88,7 +87,6 @@ bool ATankPlayerController::GetLookDirection(FVector2D ScreenLocation, FVector& 
 		LookDirection);
 
 }
-
 
 
 
